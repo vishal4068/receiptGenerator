@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+    @media print {
+      #container{
+        width:80vw;
+      }
+      #print {
+        display: none;
+      }
+      #inputGroup-sizing-default{
+        font-weight: bold;
+      }
+      #mainNav{
+        display: none;
+      }
+    /* #form-control{
+        border: none;
+        border-radius: none;
+      }*/
+    }
+  </style>
+  <script>
+    function getPrint() {
+      window.print()
+    }
+    /*function getDate(){
+      const d = new Date();
+    document.getElementById("date").innerHTML = d;
+    }*/
+
+    var total = document.getElementById("totalFees");
+    total.addEventListener(onchange, remainingFees)
+    var paid = document.getElementById("paidFees");
+    paid.addEventListener(onchange, remainingFees)
+
+    function remainingFees(){
+      var total = document.getElementById("totalFees").value;
+      var paid = document.getElementById("paidFees").value;
+      var remaining = document.getElementById("remainingFees").value=total-paid;
+      
+    }
+  </script>
+  
+  <title>GarjeVishal - Invoice</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar justify-content-center mb-2" id="mainNav" style="background-color: #a8cbe4; font-size: 35px; font-family: 'Black Ops One', cursive; letter-spacing: 2px;">
+    <b>Vishal's Classes</b>
+  </nav>
+ 
+
+  <div class="container my-3">
+    <nav class="navbar justify-content-center mb-2" style="background-color: #e3f2fd; font-size: 30px;">
+      <b>FEES RECIEPT</b>
+    </nav>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Student</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Address</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Date of Birth</span>
+      <input type="date" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="form-control">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Class</span>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Select Standard</option>
+        <option>FIRST</option>
+        <option>SECOND</option>
+        <option>THIRD</option>
+        <option>FOURTH</option>
+        <option>FIFTH</option>
+        <option>SIXTH</option>
+        <option>SEVENTH</option>
+        <option>EIGHT</option>
+        <option>NINTH</option>
+        <option>TENTH</option>
+        <option>ELEVENTH</option>
+        <option>TWELVETH</option>
+      </select>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Roll No.</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="form-control">
+    </div>
+    <div class="input-group">
+      <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="input-group">
+      <p style="margin: 5px; font-size: small;">We'll never share your email with anyone else.</p>
+  </div>
+    
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Contact</span>
+      <input type="text" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="form-control">
+    </div>
+    <div class="input-group">
+      <span class="input-group-text" id="inputGroup-sizing-default">Total Amount</span>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="totalFees" onchange="remainingFees()">
+        <span class="input-group-text ms-1" id="inputGroup-sizing-default">Paid Amount</span>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="paidFees" onchange="remainingFees()">
+    </div>
+
+    <div class="input-group">
+      <p id="date" style="margin: 5px; font-size: small; display: block;"></p>
+      <script>
+        const d = new Date();
+        document.getElementById("date").innerHTML = d;
+      </script>
+  </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">Remaining Amount</span>
+      <input type="number" class="form-control" aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default" id="remainingFees" readonly>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="inputGroup-sizing-default">Remark</span>
+    <input type="text" class="form-control" aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-default" id="remainingFees">
+  </div>
+    <button type="button" class="btn btn-primary" id="print" onclick="getPrint()">Print</button>
+
+</div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

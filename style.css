@@ -1,0 +1,15 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 70vw;
+}
+
+.SignInbutton {
+    text-align: center;
+}
+
